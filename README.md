@@ -1,0 +1,3 @@
+# QRee
+
+QR code generator
