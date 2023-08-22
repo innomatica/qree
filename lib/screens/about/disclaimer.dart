@@ -18,7 +18,7 @@ class Disclaimer extends StatelessWidget {
           ),
           subtitle: const Text(
               'The Company assumes no responsibility for errors or omissions '
-              'in the contents of the Service. (tap me for the full text).'),
+              'in the contents of the Service. (tap for the full text).'),
           onTap: () {
             launchUrl(Uri.parse(urlDisclaimer));
           },
