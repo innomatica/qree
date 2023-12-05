@@ -4,7 +4,7 @@ import 'package:qreeapp/services/sqlite.dart';
 
 class TextDetails extends StatefulWidget {
   final QrItem item;
-  const TextDetails(this.item, {Key? key}) : super(key: key);
+  const TextDetails(this.item, {super.key});
 
   @override
   State<TextDetails> createState() => _TextDetailsState();

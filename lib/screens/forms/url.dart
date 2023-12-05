@@ -5,7 +5,7 @@ import '../../services/sqlite.dart';
 
 class UrlDetails extends StatefulWidget {
   final QrItem item;
-  const UrlDetails(this.item, {Key? key}) : super(key: key);
+  const UrlDetails(this.item, {super.key});
 
   @override
   State<UrlDetails> createState() => _UrlDetailsState();

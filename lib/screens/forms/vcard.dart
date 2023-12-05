@@ -4,7 +4,7 @@ import 'package:qreeapp/services/sqlite.dart';
 
 class VcardDetails extends StatefulWidget {
   final QrItem item;
-  const VcardDetails(this.item, {Key? key}) : super(key: key);
+  const VcardDetails(this.item, {super.key});
 
   @override
   State<VcardDetails> createState() => _VcardDetailsState();

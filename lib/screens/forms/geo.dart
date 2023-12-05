@@ -7,7 +7,7 @@ import 'package:qreeapp/services/sqlite.dart';
 //
 class GeoDetails extends StatefulWidget {
   final QrItem item;
-  const GeoDetails(this.item, {Key? key}) : super(key: key);
+  const GeoDetails(this.item, {super.key});
 
   @override
   State<GeoDetails> createState() => _GeoDetailsState();

@@ -3,7 +3,7 @@ import 'package:qreeapp/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Attribution extends StatelessWidget {
-  const Attribution({Key? key}) : super(key: key);
+  const Attribution({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:qreeapp/services/sqlite.dart';
 
 class SmsDetails extends StatefulWidget {
   final QrItem item;
-  const SmsDetails(this.item, {Key? key}) : super(key: key);
+  const SmsDetails(this.item, {super.key});
 
   @override
   State<SmsDetails> createState() => _SmsDetailsState();

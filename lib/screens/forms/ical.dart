@@ -5,7 +5,7 @@ import '../../services/sqlite.dart';
 
 class IcalDetails extends StatefulWidget {
   final QrItem item;
-  const IcalDetails(this.item, {Key? key}) : super(key: key);
+  const IcalDetails(this.item, {super.key});
 
   @override
   State<IcalDetails> createState() => _IcalDetailsState();

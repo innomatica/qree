@@ -5,7 +5,7 @@ import '../../services/sqlite.dart';
 
 class TelDetails extends StatefulWidget {
   final QrItem item;
-  const TelDetails(this.item, {Key? key}) : super(key: key);
+  const TelDetails(this.item, {super.key});
 
   @override
   State<TelDetails> createState() => _TelDetailsState();

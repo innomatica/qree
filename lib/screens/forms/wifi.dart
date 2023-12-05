@@ -4,7 +4,7 @@ import 'package:qreeapp/services/sqlite.dart';
 
 class WifiDetails extends StatefulWidget {
   final QrItem item;
-  const WifiDetails(this.item, {Key? key}) : super(key: key);
+  const WifiDetails(this.item, {super.key});
 
   @override
   State<WifiDetails> createState() => _WifiDetailsState();
