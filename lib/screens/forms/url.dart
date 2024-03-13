@@ -57,6 +57,13 @@ class _UrlDetailsState extends State<UrlDetails> {
                   return null;
                 },
               ),
+              // text
+              TextFormField(
+                initialValue: widget.item.text,
+                onChanged: (value) => widget.item.text = value,
+                decoration: const InputDecoration(
+                    label: Text('text'), hintText: 'www.example.com'),
+              ),
               // site type
               const SizedBox(
                 height: 8.0,
@@ -76,6 +83,7 @@ class _UrlDetailsState extends State<UrlDetails> {
                         (e) => DropdownMenuItem(value: e, child: Text(e)))
                     .toList(),
               ),
+              // url
               TextFormField(
                 controller: _urlController,
                 decoration: const InputDecoration(

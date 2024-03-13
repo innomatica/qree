@@ -57,6 +57,13 @@ class _SmsDetailsState extends State<SmsDetails> {
                   return null;
                 },
               ),
+              // text
+              TextFormField(
+                initialValue: widget.item.text,
+                onChanged: (value) => widget.item.text = value,
+                decoration: const InputDecoration(
+                    label: Text('text'), hintText: '123-456-7890'),
+              ),
               // phone number
               TextFormField(
                 controller: _phoneController,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // enum QrType { url, tel, iCalendar, sms, mailto, vCard, wifi, text, geo}
-enum QrType { url, tel, iCalendar, sms, mailto, vCard, wifi, text, geo }
+enum QrType { url, tel, iCalendar, sms, mailto, vCard, wifi, text }
 
 extension QrTypeName on QrType {
   String getName() {
@@ -49,6 +49,7 @@ const siteType = {
 
 class QrItem {
   int? id;
+  String? text;
   String title;
   QrType type;
   int position;
@@ -56,6 +57,7 @@ class QrItem {
 
   QrItem({
     this.id,
+    this.text,
     required this.title,
     required this.type,
     required this.position,
@@ -65,6 +67,7 @@ class QrItem {
   factory QrItem.fromDatabase(Map<String, dynamic> snapshot) {
     return QrItem(
       id: snapshot['id'],
+      text: snapshot['text'] ?? '',
       title: snapshot['title'],
       type: QrType.values[snapshot['type']],
       position: snapshot['position'],
@@ -72,10 +75,10 @@ class QrItem {
     );
   }
 
-  factory QrItem.defaultByType(QrType type) {
+  factory QrItem.defaultByType(QrType qrType) {
     Map<String, dynamic> info;
 
-    switch (type) {
+    switch (qrType) {
       case QrType.url:
         info = {};
         break;
@@ -106,12 +109,13 @@ class QrItem {
         break;
     }
 
-    return QrItem(title: '', type: type, position: -1, info: info);
+    return QrItem(title: '', text: '', type: qrType, position: -1, info: info);
   }
 
   Map<String, dynamic> toDatabase() {
     return {
       "id": id,
+      "text": text,
       "title": title,
       "type": type.index,
       "position": position,

@@ -60,6 +60,13 @@ class _MailtoDetailsState extends State<MailtoDetails> {
                   return null;
                 },
               ),
+              // text
+              TextFormField(
+                initialValue: widget.item.text,
+                onChanged: (value) => widget.item.text = value,
+                decoration: const InputDecoration(
+                    label: Text('text'), hintText: 'jane.doe@example.com'),
+              ),
               // email address
               TextFormField(
                 controller: _emailController,
@@ -77,6 +84,7 @@ class _MailtoDetailsState extends State<MailtoDetails> {
                   return null;
                 },
               ),
+              // subject
               TextFormField(
                 controller: _subjectController,
                 decoration: const InputDecoration(
@@ -84,6 +92,7 @@ class _MailtoDetailsState extends State<MailtoDetails> {
                   hintText: 'Inquiry: 2022 catalog',
                 ),
               ),
+              // body
               TextFormField(
                 controller: _bodyController,
                 decoration: const InputDecoration(

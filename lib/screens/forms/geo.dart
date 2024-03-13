@@ -57,6 +57,13 @@ class _GeoDetailsState extends State<GeoDetails> {
                   return null;
                 },
               ),
+              // text
+              TextFormField(
+                initialValue: widget.item.text,
+                onChanged: (value) => widget.item.text = value,
+                decoration: const InputDecoration(
+                    label: Text('text'), hintText: '123 Center Street'),
+              ),
               // phone number
               TextFormField(
                 controller: _coordController,

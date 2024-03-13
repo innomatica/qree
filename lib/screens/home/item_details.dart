@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/qritem.dart';
 import '../../services/sqlite.dart';
-import '../forms/geo.dart';
+// import '../forms/geo.dart';
 import '../forms/ical.dart';
 import '../forms/mailto.dart';
 import '../forms/sms.dart';
@@ -33,8 +33,8 @@ class ItemDetails extends StatelessWidget {
         return VcardDetails(item);
       case QrType.wifi:
         return WifiDetails(item);
-      case QrType.geo:
-        return GeoDetails(item);
+      // case QrType.geo:
+      //   return GeoDetails(item);
       case QrType.text:
         return TextDetails(item);
       default:

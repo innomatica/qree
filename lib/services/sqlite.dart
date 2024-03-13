@@ -3,11 +3,12 @@ import 'package:qreeapp/models/qritem.dart';
 import 'package:sqflite/sqflite.dart';
 
 const databaseName = 'qree_db.db';
-const databaseVersoin = 1;
+const databaseVersion = 2;
 const tableQrItems = 'qritems';
 const sqlCreateQrItems = 'CREATE TABLE $tableQrItems ('
     'id INTEGER PRIMARY KEY,'
     'title TEXT,'
+    'text TEXT,'
     'type INTEGER,'
     'position INTEGER,'
     'info TEXT)';
@@ -16,7 +17,7 @@ const sqlDropQrItems = 'DROP TABLE IF EXISTS $tableQrItems';
 const sqlDropTables = [sqlDropQrItems];
 
 final homepageItem = QrItem(
-  title: 'Visit Our Store',
+  title: 'Visit Our App Store',
   type: QrType.url,
   position: 0,
   info: {
@@ -47,6 +48,7 @@ final twitterItem = QrItem(
 );
 final telItem = QrItem(
   title: 'Call My Number',
+  text: '804-222-1111',
   type: QrType.tel,
   position: 3,
   info: {
@@ -81,6 +83,7 @@ final smsItem = QrItem(
 );
 final mailtoItem = QrItem(
   title: 'Send Me an Email',
+  text: 'jane.doe@example.com',
   type: QrType.mailto,
   position: 6,
   info: {
@@ -92,13 +95,14 @@ final mailtoItem = QrItem(
 );
 final vcardItem = QrItem(
   title: 'My Business Card',
+  text: 'Jane Doe',
   type: QrType.vCard,
   position: 7,
   info: {
     'firstName': 'Jane',
     'lastName': 'Doe',
-    'company': 'Acme Inc.',
-    'jobTitle': 'Sales Manager',
+    'company': 'Acme Impact',
+    'jobTitle': 'Social Impact Advisor',
     'email': 'jane.doe@example.com',
     'phone': '+1-804-222-1111',
     'address': '100 Wellington St;Ottawa ON;K1A 0A9 Canada',
@@ -169,7 +173,7 @@ class SqliteService {
   Future open() async {
     _db = await openDatabase(
       databaseName,
-      version: databaseVersoin,
+      version: databaseVersion,
       onCreate: (db, version) async {
         debugPrint('creating database version: $version');
         for (final sql in sqlCreateTables) {
@@ -182,6 +186,7 @@ class SqliteService {
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         debugPrint('upgrade database from version $oldVersion to $newVersion');
+        await db.execute('ALTER TABLE $tableQrItems ADD COLUMN text TEXT');
       },
     );
   }
@@ -232,6 +237,7 @@ class SqliteService {
     final db = await getDatabase();
     int result;
 
+    // debugPrint('addQrItem: $item');
     if (item.id == null) {
       result = await db.insert(
         tableQrItems,

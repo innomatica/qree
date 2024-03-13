@@ -66,7 +66,7 @@ class _VcardDetailsState extends State<VcardDetails> {
                 controller: _titleController,
                 decoration: const InputDecoration(
                   label: Text('title'),
-                  hintText: 'Send Me an Email',
+                  hintText: 'Social Impact Advisor',
                 ),
                 validator: (value) {
                   if (value != null && value.isEmpty) {
@@ -74,6 +74,13 @@ class _VcardDetailsState extends State<VcardDetails> {
                   }
                   return null;
                 },
+              ),
+              // text
+              TextFormField(
+                initialValue: widget.item.text,
+                onChanged: (value) => widget.item.text = value,
+                decoration: const InputDecoration(
+                    label: Text('text'), hintText: 'John Doe'),
               ),
               Row(
                 children: [

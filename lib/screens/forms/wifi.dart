@@ -86,23 +86,21 @@ class _WifiDetailsState extends State<WifiDetails> {
                       },
                     ),
                   ),
-                  Stack(
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Positioned(
-                        bottom: 35.0,
-                        left: 12.0,
-                        child: Text(
-                          'hidden',
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
+                      Text(
+                        'hidden',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
-                      Switch(
+                      Checkbox(
+                        visualDensity: VisualDensity.compact,
                         value: _isSsidHidden,
                         onChanged: (value) {
-                          _isSsidHidden = value;
+                          _isSsidHidden = value ?? false;
                           setState(() {});
                         },
                       ),
