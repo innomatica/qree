@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // app info
 const appName = 'QRee';
 const appId = 'com.innomatic.qreeapp';
-const appVersion = '1.2.4+10';
+const appVersion = '1.2.5+11';
 const urlPlayStore = 'https://play.google.com/store/apps/details?id=$appId';
 const urlAppStore = null;
 const urlHomePage = 'https://innomatic.ca';
