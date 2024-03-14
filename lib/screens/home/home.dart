@@ -144,7 +144,12 @@ class _HomeState extends State<Home> {
             },
           );
         },
-        leading: item.icon(color: Theme.of(context).colorScheme.tertiary),
+        leading: SizedBox(
+            height: 26.0,
+            width: 26.0,
+            child: Center(
+                child:
+                    item.icon(color: Theme.of(context).colorScheme.tertiary))),
         title: Text(item.title),
         //
         // Item Details
