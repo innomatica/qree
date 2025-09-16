@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qree/shared/constants.dart';
 
 import '../../model/qritem.dart' show QrItem, QrContent;
 import '../qritem/model.dart';
@@ -79,7 +80,7 @@ class _MailtoDetailsState extends State<MailtoDetails> {
                 validator: (value) {
                   if (value != null) {
                     debugPrint(value);
-                    final regex = RegExp(r'^\S+@\S+\.\S+$');
+                    final regex = emailRegEx;
                     if (value.isEmpty || !regex.hasMatch(value)) {
                       return 'Please enter valid email address';
                     }

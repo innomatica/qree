@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qree/shared/constants.dart';
 
 import '../../model/qritem.dart' show QrItem, QrContent;
 import '../qritem/model.dart';
@@ -123,7 +124,7 @@ class _VcardDetailsState extends State<VcardDetails> {
                 validator: (value) {
                   if (value != null) {
                     debugPrint(value);
-                    final regex = RegExp(r'^\S+@\S+\.\S+$');
+                    final regex = emailRegEx;
                     if (value.isEmpty || !regex.hasMatch(value)) {
                       return 'Please enter valid email address';
                     }
@@ -141,9 +142,7 @@ class _VcardDetailsState extends State<VcardDetails> {
                 validator: (value) {
                   if (value != null) {
                     debugPrint(value);
-                    final regex = RegExp(
-                      r'^([+]?\d{1,2}[-\s]?|)\d{3}[-\s]?\d{3}[-\s]?\d{4}$',
-                    );
+                    final regex = phoneRegEx;
                     if (value.isEmpty || !regex.hasMatch(value)) {
                       return 'Please enter valid phone number';
                     }

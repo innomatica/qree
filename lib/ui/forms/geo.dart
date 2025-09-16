@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qree/shared/constants.dart';
 
 import '../../model/qritem.dart' show QrItem, QrContent;
 import '../qritem/model.dart';
@@ -73,9 +74,7 @@ class _GeoDetailsState extends State<GeoDetails> {
                 validator: (value) {
                   if (value != null) {
                     debugPrint(value);
-                    final regex = RegExp(
-                      r'^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$',
-                    );
+                    final regex = geocodeRegEx;
                     if (value.isEmpty || !regex.hasMatch(value)) {
                       return 'Please enter valid coordinate';
                     }
