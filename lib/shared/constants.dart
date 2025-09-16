@@ -1,6 +1,6 @@
 // app info
 const appName = 'QRee';
-const appVersion = '1.0.1+2';
+const appVersion = '1.0.2+3';
 const appId = 'com.innomatic.qree';
 
 const developerWebsite = 'https://innomatic.ca';
